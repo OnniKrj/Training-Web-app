@@ -1,7 +1,39 @@
 [
-  {},
   {
     "username": "onni",
+    "password": "asd",
+    "exercises": [
+      {
+        "exerciseName": "bicep curl",
+        "sets": "3",
+        "reps": "8",
+        "weight": "12"
+      },
+      {
+        "exerciseName": "deadlift",
+        "sets": "3",
+        "reps": "6",
+        "weight": "85"
+      }
+    ]
+  },
+  {
+    "username": "busta",
+    "password": "busta",
+    "exercises": [
+      null
+    ]
+  },
+  {
+    "username": "apina",
+    "password": "asd",
+    "exercises": [
+      null,
+      null
+    ]
+  },
+  {
+    "username": "retardi",
     "password": "asd"
   }
 ]
