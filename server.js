@@ -58,6 +58,7 @@ app.post('/login', (req, res) => {
     const { username, password } = req.body;
     console.log('Received login data:', { username, password });
     const users = readUsers();
+
     console.log('Current users:', users);
 
     const user = users.find(user => user.username === username && user.password === password);
@@ -71,11 +72,40 @@ app.post('/login', (req, res) => {
     }
 });
 
-// Handle exercise data
-app.post('/exercise', (req, res) => {
-    const { exerciseData } = req.body;
-    console.log('Received exercise data:', exerciseData);
+// Handle logout
+app.post('/logout', (req, res) => {
+    console.log('Logging out:', req.session.username);
+    req.session.destroy();
+    res.send('Logged out');
+    res.redirect('/');
+});
 
+// Save exercise data for the current user
+app.post('/exercise', (req, res) => {
+    if (!req.session.username) {
+        return res.status(401).send('Unauthorized');
+    }
+
+    const exerciseData = req.body;
+    if (!exerciseData || !exerciseData.exerciseName || !exerciseData.sets || !exerciseData.reps || !exerciseData.weight) {
+        return res.status(400).send('Invalid exercise data');
+    }
+
+    const users = readUsers();
+    const user = users.find(user => user.username === req.session.username);
+    if (user) {
+        user.exercises = user.exercises || [];
+        user.exercises.push(exerciseData);
+        writeUsers(users);
+        console.log('Exercise data saved for user:', req.session.username);
+        res.send('Exercise data received');
+    } else {
+        res.status(404).send('User not found');
+    }
+});
+
+// Load exercise data for the current user
+app.get('/exercise', (req, res) => {
     if (!req.session.username) {
         return res.status(401).send('Unauthorized');
     }
@@ -83,14 +113,7 @@ app.post('/exercise', (req, res) => {
     const users = readUsers();
     const user = users.find(user => user.username === req.session.username);
     if (user) {
-        user.exercises = user.exercises || [];
-        if (exerciseData) {
-            user.exercises.push(exerciseData);
-            writeUsers(users);
-            res.send('Exercise data received');
-        } else {
-            res.status(400).send('Invalid exercise data');
-        }
+        res.json(user.exercises || []);
     } else {
         res.status(404).send('User not found');
     }

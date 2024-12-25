@@ -14,6 +14,24 @@
         "sets": "3",
         "reps": "6",
         "weight": "85"
+      },
+      {
+        "exerciseName": "kyykky",
+        "sets": "3",
+        "reps": "8",
+        "weight": "80"
+      },
+      {
+        "exerciseName": "Kyykky",
+        "sets": "3",
+        "reps": "6",
+        "weight": "80"
+      },
+      {
+        "exerciseName": "alatalja",
+        "sets": "3",
+        "reps": "10",
+        "weight": "50"
       }
     ]
   },
@@ -21,19 +39,41 @@
     "username": "busta",
     "password": "busta",
     "exercises": [
-      null
+      null,
+      {
+        "exerciseName": "bench press",
+        "sets": "3",
+        "reps": "5",
+        "weight": "75"
+      }
     ]
   },
   {
     "username": "apina",
-    "password": "asd",
-    "exercises": [
-      null,
-      null
-    ]
+    "password": "asd"
   },
   {
     "username": "retardi",
-    "password": "asd"
+    "password": "asd",
+    "exercises": [
+      {
+        "exerciseName": "bench",
+        "sets": "3",
+        "reps": "5",
+        "weight": "75"
+      }
+    ]
+  },
+  {
+    "username": "killa",
+    "password": "killa",
+    "exercises": [
+      {
+        "exerciseName": "ylätalja",
+        "sets": "3",
+        "reps": "8",
+        "weight": "55"
+      }
+    ]
   }
 ]

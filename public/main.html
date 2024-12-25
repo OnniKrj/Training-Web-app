@@ -12,20 +12,13 @@
         <h1>My Training Log</h1>
         
         <form id="exerciseForm">
-            <label for="exerciseName">Exercise Name:</label>
-            <input type="text" id="exerciseName" name="exerciseName" required>
-            
-            <label for="sets">Sets:</label>
-            <input type="number" id="sets" name="sets" required>
-            
-            <label for="reps">Repetitions:</label>
-            <input type="number" id="reps" name="reps" required>
-            
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" name="weight" required>
-            
+            <input type="text" id="exerciseName" name="exerciseName" placeholder="Exercise Name" required>
+            <input type="number" id="sets" name="sets" placeholder="Sets" required>
+            <input type="number" id="reps" name="reps" placeholder="Reps" required>
+            <input type="number" id="weight" name="weight" placeholder="Weight" required>
             <button type="submit">Add Exercise</button>
         </form>
+        <p id="noDataMessage" style="display:none;">No exercise data available.</p>
         
         <h2>Exercise Log</h2>
         <table id="exerciseTable">
@@ -41,6 +34,7 @@
                 <!-- Exercise entries will be added here -->
             </tbody>
         </table>
+        <button id="logout">Log out</button>
     </div>
 </body>
 </html>
